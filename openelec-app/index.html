@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+
+    <title>OpenELEC</title>
+
+    <style>
+      html, body, * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        background: #ccc;
+        color: #444;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      #offline {
+        font-size: x-large;
+        width: 100%;
+        text-align: center;
+        padding-top: 2em;
+      }
+      body.offline #online {
+        display: none;
+      }
+      body.online #offline {
+        display: none;
+      }
+      .button-group {
+        width: 296px;
+        margin: auto;
+      }
+      .line {
+        display: block;
+      }
+      .button {
+        width: 48px;
+        height: 48px;
+        background: transparent;
+        border: 1px solid #888;
+        box-shadow: 0 0 10px #888;
+        border-radius: 4px;
+        padding: 8px;
+        display: inline-block;
+        float: left;
+        margin: 4px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #ccc;
+        transition: background-color 200ms, box-shadow 200ms;
+      }
+      .button.empty {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: 0 0 0;
+        border-radius: 0;
+      }
+      .button.pressed, .button.hold {
+        background-color: #aaa;
+        box-shadow: 0 0 10px #444 inset;
+      }
+      .clear {
+        width: 0;
+        height: 0;
+        clear: both;
+      }
+    </style>
+
+    <!-- Inline scripts are forbidden in Firefox OS apps (CSP restrictions),
+         so we use a script file. -->
+    <script src="app.js" defer></script>
+
+  </head>
+
+  <body class="offline">
+    <div id="offline">You are offline.</div>
+    <div id="online"></div>
+  </body>
+
+</html>
